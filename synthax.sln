@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "synthax", "synthax\synthax.csproj", "{143B1A59-9854-4421-9FF9-D429CFE9CCBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{143B1A59-9854-4421-9FF9-D429CFE9CCBE}.Debug|x86.ActiveCfg = Debug|x86
+		{143B1A59-9854-4421-9FF9-D429CFE9CCBE}.Debug|x86.Build.0 = Debug|x86
+		{143B1A59-9854-4421-9FF9-D429CFE9CCBE}.Release|x86.ActiveCfg = Release|x86
+		{143B1A59-9854-4421-9FF9-D429CFE9CCBE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
