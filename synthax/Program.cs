@@ -19,6 +19,23 @@ namespace synthax
 			}
 				
 
+			/*
+			 * 
+			 * FOR DEBUG PURPOSES ONLY
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			*/
+
+
+
+
+
+
 			int counter = 0; // FOR DEBUG
 			string line;
 
@@ -53,47 +70,66 @@ namespace synthax
 
 
 
-			Node tree = new Node ();
+
 			if (tokens_list[node_index].type != TknType.TKN_PROGRAM) {
 				Console.WriteLine ("Error: Program not first Token");
 				return;
 			} 
 
 			// TIME TO ANALYSE AND GENERATE NODE STRUCTURE
+			Node tree = nodeProgram ();
 
-			tree = nodeProgram ();
-
-			// printTree (tree);
-			Console.WriteLine (" End of program...");
+			printTree (tree);
+			Console.WriteLine ("\r\n\r\nAnalysis completed...\r\nEnd of program...");
 			return;
 		}
 
 		public static Node nodeProgram (){
 			Node main = new Node ();
+			Console.WriteLine (node_index);
 			main.node_content = tokens_list [node_index];
 			expect (TknType.TKN_LBRACK);
-			Node temp = nodeListaDeclaraciones ();
-			main.node_successor = temp;
+			Node temp = nodeDeclarationList ();
+			main.node_brother = temp;
+			Console.WriteLine (node_index);
 			expect (TknType.TKN_RBRACK);
 			return main;
 		}
 
-		public static Node nodeListaDeclaraciones(){
+		public static Node nodeDeclarationList(){
 			Node node = new Node ();
 			Token nextToken = tokens_list [++node_index];
-
-			Node raiz = new Node ();
-			while (nextToken.type >= TknType.TKN_FLOAT && nextToken.type >= TknType.TKN_BOOL) {
-				Node temp = nodeDeclaraciones ();
+			Node root = new Node ();
+			if (nextToken.type == TknType.TKN_FLOAT || nextToken.type == TknType.TKN_BOOL || nextToken.type == TknType.TKN_INT) {
+				root = nodeDeclaration ();
 				expect (TknType.TKN_SEMICOLON);
-
-				raiz.node_successor = temp;
-				raiz = temp
-				nextToken = tokens_list [++node_index];
+			}else{
+				return null;
 			}
 
+			node = root;
+
+			nextToken = tokens_list [++node_index];
+			while (nextToken.type == TknType.TKN_FLOAT || nextToken.type == TknType.TKN_BOOL || nextToken.type == TknType.TKN_INT) {
+				Node temp = nodeDeclaration ();
+				expect (TknType.TKN_SEMICOLON);
+
+				root.node_brother = temp;
+				root = temp;
+				nextToken = tokens_list [++node_index];
+			}
+			node_index--;
 			return node;
 		}
+
+		public static Node nodeDeclaration(){
+			Node node = new Node ();
+			node.node_content = tokens_list [node_index];;
+			expect (TknType.TKN_ID);
+			node.node_successor [0] = new Node (tokens_list [node_index]);
+			return node;
+		}
+			
 
 //		public static Node nodeProgram (){
 //			Node main = new Node ();
@@ -155,15 +191,30 @@ namespace synthax
 		}
 
 
-			public static void printTree (Node tree){
-				for (int i = 0; i < tree.depth; i++) {
-					Console.Write ("-");
+		public static void printTree (Node tree){
+//			for (int i = 0; i < tree.depth; i++) {
+//				Console.Write ("-");
+//			}
+			if (tree != null) {
+
+
+				if (tree.node_content != null) {
+					Console.Write ("->" + tree.node_content.type + "  " + new string (tree.node_content.lexema) + "\r\n");
 				}
-				Console.Write ( "->" + tree.node_content.type + "\r\n");
+
 				if (tree.node_successor != null) {
-					printTree (tree.node_successor);
+					foreach (var item in tree.node_successor) {
+						printTree (item);
+					}
+				}	
+				if (tree.node_brother != null) {
+				
+					printTree (tree.node_brother);
 				}
+
 			}
-	}
+			return;
+		}
+}
 }
 
