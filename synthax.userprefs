@@ -1,10 +1,10 @@
-﻿<Properties StartupItem="synthax/synthax.csproj">
+﻿<Properties StartupItem="synthax\synthax.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="synthax/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="synthax\Program.cs">
     <Files>
-      <File FileName="synthax/Program.cs" Line="91" Column="52" />
-      <File FileName="synthax/Node.cs" Line="19" Column="24" />
-      <File FileName="synthax/Token.cs" Line="23" Column="18" />
+      <File FileName="synthax\Program.cs" Line="111" Column="65" />
+      <File FileName="synthax\Node.cs" Line="1" Column="1" />
+      <File FileName="synthax\Token.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -46,6 +46,15 @@
           </Item>
           <Item Key="MonoDevelop.Ide.Execution.MonoExecutionCustomizer">
             <Value ctype="MonoExecutionParameters" />
+          </Item>
+        </CommandData>
+      </Data>
+      <Data Name="output" Id="cde31627-5d96-436c-8222-f4d36337a10f" ModeId="Default">
+        <CommandData>
+          <Item Key="MonoDevelop.Ide.Execution.CustomArgsCustomizer">
+            <Value Arguments="output.txt" ctype="CustomArgsExecutionModeData">
+              <EnvironmentVariables />
+            </Value>
           </Item>
         </CommandData>
       </Data>

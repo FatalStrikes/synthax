@@ -4,9 +4,9 @@ namespace synthax
 {
 	public class Node
 	{
-		public Node node_brother;
 		public Token node_content;
-		public Node node_successor;
+		public Node[] node_successor = new Node[3]();
+		public Node node_brother;
 		public int depth = 0;
 
 		public Node (){

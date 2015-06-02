@@ -1,0 +1,5 @@
+C:\Users\JoeGroves\Developer\synthax\synthax\bin\Debug\synthax.exe
+C:\Users\JoeGroves\Developer\synthax\synthax\bin\Debug\synthax.pdb
+C:\Users\JoeGroves\Developer\synthax\synthax\obj\x86\Debug\synthax.csprojResolveAssemblyReference.cache
+C:\Users\JoeGroves\Developer\synthax\synthax\obj\x86\Debug\synthax.exe
+C:\Users\JoeGroves\Developer\synthax\synthax\obj\x86\Debug\synthax.pdb
